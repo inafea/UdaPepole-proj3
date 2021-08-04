@@ -184,7 +184,7 @@ jobs:
       - run:
           name: Check Backend against security vulnerabilities
           working_directory: ./backend
-          command: npm install --save-dev jest@27.0.6 && npm audit --audit-level=critical
+          command: npm install --save-dev jest@27.0.6 && npm install --save-dev nodemon@2.0.12 && npm audit --audit-level=critical
 
 
   deploy-infrastructure:
