@@ -183,7 +183,7 @@ jobs:
       - attach_workspace:
           at: .
       - run:
-          name: Check Backend against security vulnerabilities
+          name: Check Backend against security vulnerabilitie
           working_directory: ./backend
           command:  npm audit fix --audit-level=critical --force
           
