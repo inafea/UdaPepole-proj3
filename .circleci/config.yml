@@ -287,7 +287,7 @@ jobs:
           name: Run migrations
           working_directory: ./backend
           command: |
-            npm install -g ts-node
+            sudo npm install -g ts-node
             npm run migrations > migration_status
       - run:
           name: Send migration results to memstash
