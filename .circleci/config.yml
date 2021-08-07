@@ -286,7 +286,8 @@ jobs:
       - run:
           name: Run migrations
           working_directory: ./backend
-          command: |       
+          command: |   
+            sudo apt update    
             touch .env
             echo ENVIROMENT=$ENVIROMENT >> .env
             echo TYPEORM_CONNECTION=postgres >> .env
