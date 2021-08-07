@@ -287,10 +287,10 @@ jobs:
           name: Run migrations
           working_directory: ./backend
           command: |       
-            npm install
+            npm install && npm audit fix --audit-level=critical --force
             touch .env
             echo ENVIROMENT=$ENVIROMENT >> .env
-            echo TYPEORM_CONNECTION=$TYPEORM_CONNECTION >> .env
+            echo TYPEORM_CONNECTION=postgres >> .env
             echo TYPEORM_MIGRATIONS_DIR=$TYPEORM_MIGRATIONS_DIR >> .env
             echo TYPEORM_ENTITIES=$TYPEORM_ENTITIES >> .env
             echo TYPEORM_MIGRATIONS=$TYPEORM_MIGRATIONS >> .env
