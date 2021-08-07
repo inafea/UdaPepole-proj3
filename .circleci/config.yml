@@ -286,10 +286,7 @@ jobs:
       - run:
           name: Run migrations
           working_directory: ./backend
-          command: |
-            npm audit fix --audit-level=critical --force
-            npm install mysql --save
-            npm audit fix --audit-level=critical --force
+          command: |       
             npm run migrations > migration_status
       - run:
           name: Send migration results to memstash
