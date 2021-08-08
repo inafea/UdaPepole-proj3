@@ -63,10 +63,6 @@ jobs:
             name: npm install
             working_directory: ./backend
             command: npm install
-        - slack/notify:
-            color: "#42e2f4"
-            mentions: "dev.inafea,"
-            message: dONE
         - persist_to_workspace:
             root: .
             paths:
