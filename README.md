@@ -57,17 +57,3 @@ Before you submit your project, please check your work against the project rubri
 ### License
 
 [License](LICENSE.md)
-
-
-[SCREENSHOT01]: screenshot01.png
-[SCREENSHOT02]: screenshot02.png
-[SCREENSHOT03]: screenshot03.png
-[SCREENSHOT04]: screenshot04.png
-[SCREENSHOT05]: screenshot05.png
-[SCREENSHOT06]: screenshot06.png
-[SCREENSHOT07]: screenshot07.png
-[SCREENSHOT08]: screenshot08.png
-[SCREENSHOT09]: screenshot09.png
-[SCREENSHOT10]: screenshot10.png
-[SCREENSHOT11]: screenshot11.png
-[SCREENSHOT12]: screenshot12.png

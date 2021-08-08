@@ -38,20 +38,7 @@ commands:
           when: on_fail
             
 jobs:
-  install-backend-dependencies:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - checkout
-      - run:
-          name: npm install
-          working_directory: ./backend
-          command: ls -la && npm install
-      - persist_to_workspace:
-          root: .
-          paths:
-            - backend/node_modules
-
+  
   install-frontend-dependencies:
     docker:
       - image: circleci/node:13.8.0
@@ -60,12 +47,24 @@ jobs:
       - run:
           name: npm install
           working_directory: ./frontend
-          command: ls -la && npm install
+          command: npm install
       - persist_to_workspace:
           root: .
           paths:
             - frontend/node_modules
-
+  install-backend-dependencies:
+      docker:
+        - image: circleci/node:13.8.0
+      steps:
+        - checkout
+        - run:
+            name: npm install
+            working_directory: ./backend
+            command: npm install
+        - persist_to_workspace:
+            root: .
+            paths:
+            - backend/node_modules
   build-frontend:
     docker:
       - image: circleci/node:13.8.0
@@ -109,8 +108,8 @@ jobs:
       - checkout
       - run:
           name: test frontend
+          working_directory: ./frontend
           command: |
-            cd frontend
             npm i
             npm test
                      
@@ -121,8 +120,8 @@ jobs:
       - checkout
       - run:
           name: test backend
+          working_directory: ./backend
           command: |
-            cd backend
             npm i
             npm test
 
@@ -136,7 +135,8 @@ jobs:
           command: |
             cd frontend
             npm i
-            npm audit fix --audit-level=critical --force
+            npm audit --audit-level=critical
+            # npm audit fix --audit-level=critical --force
       - restore_cache:
           key: v1-frontend-build
   
@@ -150,7 +150,8 @@ jobs:
           command: |
             cd backend
             npm i
-            npm audit fix --audit-level=critical --force
+            npm audit --audit-level=critical
+            # npm audit fix --audit-level=critical --force
       - restore_cache:
           key: v1-backend-build
 
