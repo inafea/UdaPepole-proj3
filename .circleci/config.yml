@@ -131,9 +131,9 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Check Frontend against security vulnerabilities
+          name: Scan Frontend dependencies
+          working_directory: ./frontend
           command: |
-            cd frontend
             npm i
             npm audit --audit-level=critical
             # npm audit fix --audit-level=critical --force
@@ -146,9 +146,9 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Chek Backend against security vulnerabilities
+          name: Scan backend dependencies
+          working_directory: ./backend
           command: |
-            cd backend
             npm i
             npm audit --audit-level=critical
             # npm audit fix --audit-level=critical --force
