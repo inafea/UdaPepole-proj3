@@ -376,7 +376,7 @@ jobs:
           name: Frontend smoke test.
           working_directory: ./backend
           command: |
-            URL="http://udapeople-${CIRCLE_WORKFLOW_ID:0:7}.s3-website-us-east-1.amazonaws.com/index.html"
+            URL="http://udapeople-${CIRCLE_WORKFLOW_ID:0:7}.s3.eu-west-3.amazonaws.com/index.html"
             if curl -s ${URL} | grep "Welcome"
             then 
               return 1
