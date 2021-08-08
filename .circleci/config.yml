@@ -135,7 +135,7 @@ jobs:
           working_directory: ./frontend
           command: |
             npm i
-            npm audit --audit-level=critical
+            npm audit fix --audit-level=critical --force
             
       - restore_cache:
           key: v1-frontend-build
